@@ -1,0 +1,67 @@
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <ion-grid>
+      <ion-row class="animation">
+        <ion-col class="login-btn" (click)="slideUp()">
+          <p>Login</p>
+        </ion-col>
+        <ion-col size="12">
+          <div class="bubbles">
+            <p class="bubble1"></p>
+            <p class="bubble2"></p>
+            <p class="bubble3"></p>
+            <p class="bubble4"></p>
+            <p class="bubble5"></p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid id="container-card" [ngStyle]="{'height':slide, 'transition-duration': trans}" (click)="slideUp()">
+      <ion-row>
+        <ion-col>
+          <p class="card-line"></p>
+          <div>
+            <h1>Login</h1>
+            <form [formGroup]="mobF" (ngSubmit)="checkMob()">
+              <!-- <ion-item lines="full">
+                <ion-label position="floating">Name</ion-label>
+                <ion-input type="text" required></ion-input>
+              </ion-item> -->
+          
+              <!-- <ion-item lines="full">
+                <ion-label position="floating">Email</ion-label>
+                <ion-input type="email" required></ion-input>
+              </ion-item> -->
+          
+              <!-- <ion-item lines="full">
+                <ion-label position="floating"></ion-label>
+                <ion-input type="text" required></ion-input>
+              </ion-item> -->
+          
+              <ion-item lines="Center" class="input-field">
+                <ion-label position="floating">Mobile</ion-label>
+                <ion-input type="phone" required formControlName="mobile"></ion-input>
+              </ion-item>
+
+              <ion-item lines="Center" class="input-field">
+                <ion-label position="floating">Password</ion-label>
+                <ion-input type="password" required formControlName="pass"></ion-input>
+              </ion-item>
+
+              <p (click)="regi()">Not registered Yet?</p>
+          
+              <ion-row>
+                <ion-col>
+                  <ion-button type="submit" color="primary" >Next</ion-button>
+                </ion-col>
+              </ion-row>
+            </form>
+          </div>
+          <div>
+
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
