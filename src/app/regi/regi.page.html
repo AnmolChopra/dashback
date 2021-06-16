@@ -1,8 +1,8 @@
 <ion-content [fullscreen]="true">
-  <div id="container">
+  <div id="container" [ngStyle]="{'background-image':backcolor, 'transition-duration': trans}">
     <ion-grid>
       <ion-row class="animation">
-        <ion-col class="login-btn" (click)="slideUp()">
+        <ion-col class="login-btn" [ngStyle]="{'top':topdist, 'background-image':bgimg, 'transition-duration': trans}" (click)="slideUp()">
           <p>Register</p>
         </ion-col>
         <ion-col size="12">
@@ -21,15 +21,15 @@
         <ion-col>
           <p class="card-line"></p>
           <div>
-            <h1>Register</h1>
             <form [formGroup]="regiF" (ngSubmit)="register()">
+              <p style="color: red; text-align: center; margin-bottom: 5px;">{{msg}}</p>
               <ion-item lines="Center" class="input-field">
-                <ion-label position="floating">Name</ion-label>
+                <ion-label class="label" position="floating">Name</ion-label>
                 <ion-input type="text" required formControlName="name"></ion-input>
               </ion-item>
           
               <ion-item lines="Center" class="input-field">
-                <ion-label position="floating">Email</ion-label>
+                <ion-label class="label" position="floating">Email</ion-label>
                 <ion-input type="email" required formControlName="email"></ion-input>
               </ion-item>
           
@@ -39,33 +39,28 @@
               </ion-item> -->
           
               <ion-item lines="Center" class="input-field">
-                <ion-label position="floating">Mobile</ion-label>
+                <ion-label class="label" position="floating">Mobile</ion-label>
                 <ion-input type="text" required formControlName="mobile"></ion-input>
               </ion-item>
 
               <ion-item lines="Center" class="input-field">
-                <ion-label position="floating">Password</ion-label>
+                <ion-label class="label" position="floating">Password</ion-label>
                 <ion-input type="password" required formControlName="pass"></ion-input>
               </ion-item>
 
-              <ion-item lines="Center" class="input-field">
-                <ion-label position="floating">Re-enter Password</ion-label>
-                <ion-input type="password" required formControlName="rePass"></ion-input>
-              </ion-item>
-
-              <ion-item lines="Center" class="input-field">
-                <ion-label position="floating">Sponsor Number</ion-label>
+              <ion-item lines="Center" class="input-field" *ngIf="sponser ==  true">
+                <ion-label class="label" position="floating">Sponsor Number</ion-label>
                 <ion-input type="text" required formControlName="sponsorNo"></ion-input>
               </ion-item>
 
-              <ion-item lines="Center" class="input-field">
-                <ion-label position="floating">Sponsor Name</ion-label>
+              <ion-item lines="Center" class="input-field" *ngIf="sponser ==  true">
+                <ion-label class="label" position="floating">Sponsor Name</ion-label>
                 <ion-input type="text" required formControlName="S_name"></ion-input>
               </ion-item>
-          
+                <p routerLink="../login">Already registered? Login here</p>
               <ion-row>
                 <ion-col>
-                  <ion-button type="submit" color="primary" >Submit</ion-button>
+                  <ion-button type="submit" class="btn" expand="block" [disabled]="!regiF.valid">Submit</ion-button>
                 </ion-col>
               </ion-row>
             </form>

@@ -25,7 +25,7 @@
                 display: flex;
                 justify-content: center;
                 padding-top: 4rem;
-                color: #000;
+                color: #fff;
                 font-weight: bolder;
                 font-size: 2rem;
             }
@@ -98,27 +98,27 @@
         bottom: 0;
         border-radius: 40px 40px 0 0;
         z-index: 100;
-        overflow: hidden;
+        overflow-y: scroll;
+        padding: 0 20px;
         .card-line{
             height: 4px;
             width: 150px;
             background-color: rgb(233, 229, 229);
             margin: 25px auto;
         }
-        h1{
-            text-align: center;
-            font-weight: 900;
-        }
-        form{
-
-            margin: 2vh 10vw;
-            .input-field{
-                background-color: #fff;
-                border: 1px solid #000;
-                color: #3D54BA;
-                margin-bottom: 5px;
+        .input-field{
+            --background: #fff;
+            border: 1px solid #1d1d62;
+            margin-bottom: 20px;
+            padding: 0;
+            color: #000;
+            .label{
+                color: rgb(82, 79, 79);
             }
-
+        }
+        .btn{
+            margin-top: 16px;
+            --background: #1d1d62;
         }
     }
 }

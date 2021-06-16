@@ -14,7 +14,12 @@ const routes: Routes = [
     children:[
       {
         path:'dash',
-        component:DashboardComponent
+        component:DashboardComponent,
+        children:[
+          {
+            path:''
+          },
+        ]
       },
       {
         path:'more',
@@ -31,12 +36,24 @@ const routes: Routes = [
       {
         path:'history',
         component:HistoryComponent
-      }
+      },
     ]
   },
   {
-    path: 'service',
-    loadChildren: () => import('./dashboard/service/service.module').then( m => m.ServicePageModule)
+    path:'service/:id',
+    loadChildren: () => import('./dashboard/service/service.module').then(m => m.ServicePageModule),
+  },
+  {
+    path: 'circle/:ib/:id/:name',
+    loadChildren: () => import('./dashboard/circle/circle.module').then( m => m.CirclePageModule)
+  },
+  {
+    path: 'trans/:ib/:id/:name/:cc/:cn',
+    loadChildren: () => import('./dashboard/trans/trans.module').then( m => m.TransPageModule)
+  },
+  {
+    path: 'addMoney',
+    loadChildren: () => import('./dashboard/add-money/add-money.module').then( m => m.AddMoneyPageModule)
   }
 ];
 
