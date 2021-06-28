@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class BackendService {
-url = "https://backend.dashback.in/"
+url = "https://loaclhost:2702/"
   constructor(private http: HttpClient) { }
 
   // Check Mobile
@@ -32,4 +32,22 @@ url = "https://backend.dashback.in/"
   fetchCircle(){
     return this.http.get(this.url+'fetchCricle');
   }
+  //fetch team
+  fetchTeam(data){
+    return this.http.get(this.url+'fetchTeam/'+data);
+  }
+  // Ad tran
+  adTran(data){
+    return this.http.post(this.url+'adTran',data);
+  }
+  fetchBal(data){
+    return this.http.get(this.url+'fetchBal/'+data);
+  }
+  adCount(data){
+    return this.http.get(this.url+'adCount/'+data);
+  }
+  fetchTran(data){
+    return this.http.get(this.url+'fetchTran/'+data);
+  }
 }
+

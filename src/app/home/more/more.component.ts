@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-more',
@@ -7,8 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoreComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {}
 
+  slider(slide){
+    slide.startAutoplay();
+  }
+
+  nav(){
+    this.router.navigate(['/home/coming-soon'])
+  }
 }

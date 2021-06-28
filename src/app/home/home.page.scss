@@ -5,8 +5,10 @@
 }
 
 #container{
-  height: 100vh;
+  min-height: 100vh;
   background-image: linear-gradient(to right, #37A7E6, #3D54BA);
+  color: #fff;
+  padding: 10px 0 0 0;
   .dashboard-heading{
       text-align: center;
       text-transform: uppercase;
@@ -24,57 +26,86 @@
     }
   }
   .big-img{
-      height: 150px;
-      width: 150px;
-      background-color: #fff;
-      margin: 0 auto;
-      border-radius: 50%;
-      margin-top: 25px;
-      border: 4px solid #1D1D62;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    margin-left: -70px;
+    height: 140px;
+    width: 140px;
+    background-color: #fff;
+    border-radius: 50%;
   }
-  .dashboard-profile-edit{
-      text-align: center;
-      font-size: 11px;
-      margin-top: 5px;
-      text-transform: capitalize;
+  .small-img{
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    height: 40px;
+    width: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 16px 0 0 10px;
   }
   .dashboard-username{
+      text-align: center;
       padding: 0 0 0 30px;
-      font-size: 32px;
-      margin-top: 50px;
+      font-size: 22px;
+      margin: 190px 0 20px 0;
+      text-transform: capitalize;
   }
-  .dashboard-number{
-      padding: 0 0 0 30px;
-      margin-top: 20px;
+  .icon-text{
+    text-align: center;
+    margin: 0 0 15px 0;
+    font-size: 12px;
   }
-  #container-card{
-    background-color: #fff;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    border-radius: 50px 50px 0 0;
-    padding-bottom: 50px;
-    .card-line{
-        height: 4px;
-        width: 180px;
-        background-color: rgb(233, 229, 229);
-        margin: 15px auto 40px;
+  .icons{
+    display: flex;
+    justify-content: center;
+    margin: 0 0 20px 0;
+    .icon{
+      height: 20px;
+      margin: 0 8px;
     }
-    .inner-card{
-      overflow-y: scroll;
-      padding: 0 15px;
+  }
+  .ion-item{
+    --ion-item-background: transparent;
+    min-height: 30vh;
+    max-height: 35vh;
+    overflow-y: scroll;
+    padding: 0 0 50px 0;
+    .ion-label{
+      color: rgba(255, 255, 255, 0.945);
+      text-transform: capitalize;
+      cursor: pointer;
+      font-size: 16px;
+      img{
+        height: 14px;
+      }
     }
   }
 }
-.small-img{
-  height: 42px;
-  width: 42px;
+
+
+
+#container-card{
   background-color: #fff;
-  border-radius: 50%;
-  margin: 16px 0 0 10px;
-  border: 2px solid #1D1D62;
-  transition-delay: 1s;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  border-radius: 50px 50px 0 0;
+  padding-bottom: 50px;
+  .card-line{
+      height: 4px;
+      width: 180px;
+      background-color: rgb(233, 229, 229);
+      margin: 15px auto 40px;
+  }
+  .inner-card{
+    overflow-y: scroll;
+    padding: 0 15px;
+  }
 }
+
+
 
 #navbar{
   background-image: linear-gradient(to right, #37A7E6, #3D54BA);
