@@ -1,8 +1,11 @@
 
   <div class="container">
     <ion-row>
-      <ion-col size="12">
-        <h4> <span routerLink="/home/dash" ><ion-icon name="arrow-back-circle-outline"></ion-icon></span> transaction history</h4>
+      <ion-col>
+        <h3>
+          <ion-icon name="arrow-back-circle-outline" class="back-icon" routerLink="/home/dash"></ion-icon>
+          transaction history
+        </h3>
       </ion-col>
     </ion-row>
     
@@ -17,7 +20,8 @@
                   <p>
                      
                     <span>₹</span>{{r.amt}} <br>
-                    <img src="../../../assets/up.svg" alt="" class="payment-arrow ion-margin-end">
+                    <img src="../../../assets/up.svg" alt="" class="payment-arrow ion-margin-end" *ngIf=" r.tranType == 'credit' ">
+                    <img src="../../../assets/down.svg" alt="" class="payment-arrow ion-margin-end" *ngIf=" r.tranType == 'Debit' ">
                   </p>
                 </strong>
               </div>

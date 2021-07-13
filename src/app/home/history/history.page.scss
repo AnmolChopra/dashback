@@ -3,25 +3,30 @@
     margin: 0;
     padding: 0;
   }
+
 .container{
-    padding: 5vh 2vw 5vh 2vw;
+    padding: 4vh 5vw 5vh 5vw;
     background-color: white;
 }
   
-  h4{
-      color: #000;
-      text-transform: capitalize;
-      font-size: 1.8rem;
-      padding-left: 10px;
-      margin-bottom: 10px;
+h3{
+  color: #162249;
+  padding: 40px 0 28px 20px;
+  font-size: 24px;
+  display: flex;
+  text-transform: capitalize;
+  font-family: "s-semi-bold", sans-serif;
+  .back-icon{
+      margin-right: 20px;
   }
+}
   
   .history-portion{
-    height: 88vh;
+    height: 80vh;
     overflow-y: scroll;
     justify-content: center;
     .history{
-      background-color: rgb(224, 219, 219);
+      background-color: #D8E5EB;
       color: #000;
       border-radius: 10px;
       padding: 20px 15px;
@@ -32,9 +37,11 @@
         text-transform: capitalize;
         font-size: 1.2rem;
         line-height: 1rem;
+        font-weight: bolder;
+        line-height: 20px;
         .date-style{
-            text-transform: lowercase;
-            font-size: 1.1rem;
+          text-transform: lowercase;
+          font-size: 1.1rem;
         }
         span{
           font-size: 1.1rem;
@@ -47,9 +54,6 @@
   }
   
   @media only screen and (max-width: 1080px) {
-    h4{
-      font-size: 1.6rem;
-    }
     .history-portion{
       .history{
         p{
@@ -69,9 +73,6 @@
   }
   
   @media only screen and (max-width: 720px) {
-    h4{
-      font-size: 1.4rem;
-    }
     .history-portion{
       .history{
         p{
@@ -91,9 +92,6 @@
   }
   
   @media only screen and (max-width: 420px) {
-    h4{
-      font-size: 1.2rem;
-    }
     .history-portion{
       .history{
         p{
@@ -113,9 +111,6 @@
   }
   
   @media only screen and (max-width: 320px) {
-    h4{
-      font-size: 1rem;
-    }
     .history-portion{
       .history{
         p{

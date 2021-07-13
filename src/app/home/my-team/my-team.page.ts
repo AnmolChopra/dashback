@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { BackendService } from 'src/app/service/backend.service';
+// import { setTimeout } from 'timers';
 
 @Component({
   selector: 'app-my-team',
@@ -19,20 +20,26 @@ export class MyTeamPage implements OnInit {
   constructor(private bs:BackendService, private load: LoadingController) { }
 
   ngOnInit() {
-    // this.load.create({
-    //   message: 'Please wait....'
-    // }).then((res)=>{
-    //   res.present()
-    // })
+    this.load.create({
+      message: 'Please wait....'
+    }).then((res)=>{
+      res.present()
+    })
     this.bs.fetchTeam(this.mobile).subscribe((res)=>{
       this.responseObj=res;
       this.responseData=this.responseObj.data;
+      console.log(this.responseData)
       this.load.dismiss()
+      setTimeout(()=>{
+        this.load.dismiss()
+      },5000)  
     })
+    
   }
 
   tier(no){
     this.tierView = false;
+    this.tierNo = no
     if(no == 1){
       this.tierData = this.responseData.lvl1
       // console.log(this.tierData)

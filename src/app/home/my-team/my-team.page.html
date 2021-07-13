@@ -105,14 +105,14 @@
       <div class="card">
         <div class="card-header">
           <div class="img"></div>
-          <h3>Tier 1</h3>
+          <h3>Tier {{tierNo}}</h3>
         </div>
         <div class="body">
           <p>Team Size : {{tierData?.length}}</p>
-          <p>Utility earning : {{totalVal}}</p>
-          <p>Account earning : </p>
-          <p>E-commerce earning : </p>
-          <p>Ad earning: </p>
+          <p>Total Utility Cashback : {{totalVal}}</p>
+          <p>Total Account Cashback : </p>
+          <p>Total E-commerce Cashback : </p>
+          <p>Total Ad Cashback: </p>
         </div>
       </div>
     </ion-col>
@@ -123,10 +123,10 @@
           <h3>{{r.name}}</h3>
         </div>
         <div class="body">
-          <p>Utility earning : {{r.earning.utility}}</p>
-          <p>Account earning : {{r.earning.demat}}</p>
-          <p>E-commerce earning : {{r.earning.eComm}}</p>
-          <p>Ad earning: {{r.earning.ad}}</p>
+          <p>Utility Cashback : {{r.earning.utility}}</p>
+          <p>Account Cashback : {{r.earning.demat}}</p>
+          <p>E-commerce Cashback : {{r.earning.eComm}}</p>
+          <p>Ad Cashback: {{r.earning.ad}}</p>
         </div>
       </div>
     </ion-col>

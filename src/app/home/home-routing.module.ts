@@ -114,7 +114,24 @@ const routes: Routes = [
   {
     path: 'history',
     loadChildren: () => import('./history/history.module').then( m => m.HistoryPageModule)
+  },
+  {
+    path: 'successful/:type/:amt',
+    loadChildren: () => import('./successful/successful.module').then( m => m.SuccessfulPageModule)
+  },  {
+    path: 'premium',
+    loadChildren: () => import('./premium/premium.module').then( m => m.PremiumPageModule)
+  },
+  {
+    path: 'demat',
+    loadChildren: () => import('./demat/demat.module').then( m => m.DematPageModule)
+  },
+  {
+    path: 'cal',
+    loadChildren: () => import('./cal/cal.module').then( m => m.CalPageModule)
   }
+
+
 
 
 

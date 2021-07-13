@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BackendService } from '../service/backend.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit{
 outerslide = '90px';
 outertrans = '1s';
 innerslide = '0vh';
@@ -15,8 +16,24 @@ innerpadding = "0px";
 big = "big-img";
 name = localStorage.getItem("name");
 mobile = localStorage.getItem("number")
-  constructor(private router : Router) {}
-
+premData;
+premium:boolean= true
+  constructor(private router : Router, private bs: BackendService) {}
+  
+  ngOnInit(){
+    this.bs.fetchProfile(this.mobile).subscribe((res)=>{
+      this.premData = res
+      console.log(this.premData)
+      console.log('works')
+      if(this.premData.data.account_Type == "Premium"){
+        this.premium= false
+      }
+      else{
+        this.premium = true
+      }
+    })
+  }
+  
   slideUp(){
     this.outerslide = '88vh';
     this.innerslide = '74vh';
@@ -43,6 +60,15 @@ mobile = localStorage.getItem("number")
     }
     if(id === 'whatsapp'){
       
+    }
+    if(id === 'linkedin'){
+      window.open('https://www.linkedin.com/company/dash-back/');
+    }
+    if(id === 'telegram'){
+      window.open('https://t.me/dashbackIndia');
+    }
+    if(id === 'twitter'){
+      window.open('https://twitter.com/DashBackIndia')
     }
   }
 }

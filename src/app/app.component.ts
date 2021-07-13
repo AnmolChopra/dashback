@@ -45,25 +45,25 @@ speed;
       this.orientation.lock(this.orientation.ORIENTATIONS.PORTRAIT);
       StatusBar.setOverlaysWebView({overlay: true})
     })
-    // App.addListener('appUrlOpen', (data: any) => {
-    //   this.zone.run(() => {
-    //       // Example url: https://beerswift.app/tabs/tab2
-    //       // slug = /tabs/tab2
-    //       // this.toastController.create({
-    //       //   message:data.url,
-    //       //   duration:2000
-    //       // }).then((res)=>{
-    //       //   res.present()
-    //       // })
-    //       const slug = data.url.split(".in").pop();
-    //       if (slug) {
-    //           this.router.navigateByUrl(slug);
-    //       }
+    App.addListener('appUrlOpen', (data: any) => {
+      this.zone.run(() => {
+          // Example url: https://beerswift.app/tabs/tab2
+          // slug = /tabs/tab2
+          // this.toastController.create({
+          //   message:data.url,
+          //   duration:2000
+          // }).then((res)=>{
+          //   res.present()
+          // })
+          const slug = data.url.split(".in").pop();
+          if (slug) {
+              this.router.navigateByUrl(slug);
+          }
 
-    //       // If no match, do nothing - let regular routing
-    //       // logic take over
-    //   });
-    // });
+          // If no match, do nothing - let regular routing
+          // logic take over
+      });
+    });
   }
 
   checkVersion(){
@@ -75,14 +75,14 @@ speed;
     return this.http.get('https://backend.dashback.in/checkVer').subscribe((res)=>{
       this.version = res
       this.load.dismiss()
-      if(this.version.version !== '1.1.53' ){
+      if(this.version.version !== '1.1.558' ){
         const alert = this.alret.create({
           header: 'Version Alert',
           message: 'You are on lower version. Update to latest version. ',
           buttons:[{
             text: 'Update',
             handler: ()=>{
-              window.open('https://www.dashback.in/downloadapp')
+              window.open('https://bit.ly/3xEs54N')
             }
           }]
         }).then((res)=>{
