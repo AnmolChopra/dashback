@@ -67,5 +67,11 @@ url = "https://backend.dashback.in/"
   premium(data){
     return this.http.get(this.url+'premium/'+data);
   }
+  fetchbyNum(data){
+    return this.http.get(this.url+'fetchbyNumber/'+data);
+  }
+  fundTransfer(data){
+    return this.http.post(this.url+'fundTransfer',data);
+  }
 }
 

@@ -87,23 +87,25 @@
   </ion-row>
 
   <ion-row>
-    <!-- <ion-col>
+    <ion-col>
       <div class="search-bar">
-        <ion-item class="input-field">
-          <ion-label class="label" position="floating">search</ion-label>
-          <ion-input type="search" placeholder="Name or number"></ion-input>
-        </ion-item>
-        <ion-button type="submit" class="submit-btn">
-          <ion-icon name="search-outline"></ion-icon>
-        </ion-button>  
+        <form [formGroup]="search" (ngSubmit)="find()">
+          <ion-item class="input-field">
+            <ion-label class="label" position="floating">search</ion-label>
+            <ion-input type="search" placeholder="Name" formControlName = "search"  ></ion-input>
+          </ion-item>
+          <ion-button type="submit" class="submit-btn">
+            <ion-icon name="search-outline"></ion-icon>
+          </ion-button> 
+        </form> 
       </div>
-    </ion-col> -->
+    </ion-col>
   </ion-row>
 
   <ion-row>
     <ion-col>
       <div class="card">
-        <div class="card-header">
+        <div [ngClass]="'card-header'">
           <div class="img"></div>
           <h3>Tier {{tierNo}}</h3>
         </div>
@@ -117,8 +119,8 @@
       </div>
     </ion-col>
     <ion-col>
-      <div class="card" *ngFor="let r of tierData">
-        <div class="card-header">
+      <div  *ngFor="let r of tierData" [ngClass]="{'card':r.account === null || 'Basic' ,'Premium':r.account == 'Premium'}">
+        <div  class="card-header">
           <div class="img"></div>
           <h3>{{r.name}}</h3>
         </div>

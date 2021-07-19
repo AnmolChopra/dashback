@@ -62,17 +62,20 @@ mobile = localStorage.getItem("number")
           ]
         }).then((res)=>{
           res.present()
+          this.load.dismiss()
         })
       }
       if(this.resData.err == 1){
-        this.load.dismiss()
-        this.alertCrt.create({
-          header:'Error',
-          message:this.resData.msg,
-          buttons:['Ok']
-        }).then((res)=>{
-          res.present()
-        })
+        setTimeout(()=>{
+          this.load.dismiss()
+          this.alertCrt.create({
+            header:'Error',
+            message:this.resData.msg,
+            buttons:['Ok']
+          }).then((res)=>{
+            res.present()
+          })
+        },1000)
       }
     })
   }

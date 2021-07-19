@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { LoadingController } from '@ionic/angular';
 import { BackendService } from 'src/app/service/backend.service';
 // import { setTimeout } from 'timers';
@@ -17,7 +18,8 @@ export class MyTeamPage implements OnInit {
   tierData;
   tierNo;
   totalVal;
-  constructor(private bs:BackendService, private load: LoadingController) { }
+  search:FormGroup
+  constructor(private bs:BackendService, private load: LoadingController, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.load.create({
@@ -34,7 +36,13 @@ export class MyTeamPage implements OnInit {
         this.load.dismiss()
       },5000)  
     })
-    
+    this.searchForm();
+  }
+
+  searchForm(){
+    this.search = this.fb.group({
+      'search': ['']
+    })
   }
 
   tier(no){
@@ -84,5 +92,14 @@ export class MyTeamPage implements OnInit {
   }
   back(){
     this.tierView = true
+  }
+  find(){
+    let val = this.search.controls['search'].value
+    this.tierData = this.work(val)
+    // console.log(result)
+  }
+  work(val){
+    // console.log(val)
+    return this.tierData.filter(x => x.name === val)
   }
 }

@@ -23,8 +23,6 @@ premium:boolean= true
   ngOnInit(){
     this.bs.fetchProfile(this.mobile).subscribe((res)=>{
       this.premData = res
-      console.log(this.premData)
-      console.log('works')
       if(this.premData.data.account_Type == "Premium"){
         this.premium= false
       }
@@ -35,7 +33,7 @@ premium:boolean= true
   }
   
   slideUp(){
-    this.outerslide = '88vh';
+    this.outerslide = '87vh';
     this.innerslide = '74vh';
     this.innerpadding = '20px';
     this.big = "small-img";

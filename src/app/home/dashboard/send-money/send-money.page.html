@@ -8,26 +8,44 @@
         </h3>
       </ion-col>
     </ion-row> 
-    <ion-row>
-      <ion-col>
-        <ion-item lines="Center" class="input-field">
-          <ion-label class="label" position="floating">Number</ion-label>
-          <ion-input type="tel" required ></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item lines="Center" class="input-field">
-          <ion-label class="label" position="floating">Amount</ion-label>
-          <ion-input type="text" required ></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" class="btn">Send Money</ion-button>
-      </ion-col>
-    </ion-row>
+    <div *ngIf="trans == false">
+      <form [formGroup]="search" (ngSubmit)="searchNum()">
+        <ion-row>
+          <ion-col>
+            <ion-item lines="Center" class="input-field">
+              <ion-label class="label" position="floating">Number</ion-label>
+              <ion-input type="tel" required formControlName="mobile" pattern="[0-9]{10}"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button type="submit" class="btn" [disabled]=!search.valid>Search</ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+    </div>
+    <div *ngIf="trans == true">
+      <form [formGroup]="transfer" (ngSubmit)="fundTransfer()">
+        <ion-row>
+          <ion-col>
+            <h3> <span style="font-weight: bolder;">To: </span> {{searchData.name}}</h3>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item lines="Center" class="input-field">
+              <ion-label class="label" position="floating">Amount</ion-label>
+              <ion-input type="text" required formControlName="amt" pattern="(5000|([1-4][0-9][0-9][0-9])|([1-9][0-9][0-9])|([1-9][0-9])|[1-9])"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button type="submit" class="btn" [disabled]="!transfer.valid">Send Money</ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+    </div>
   </div>
 </ion-content>

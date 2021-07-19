@@ -45,37 +45,37 @@ speed;
       this.orientation.lock(this.orientation.ORIENTATIONS.PORTRAIT);
       StatusBar.setOverlaysWebView({overlay: true})
     })
-    App.addListener('appUrlOpen', (data: any) => {
-      this.zone.run(() => {
-          // Example url: https://beerswift.app/tabs/tab2
-          // slug = /tabs/tab2
-          // this.toastController.create({
-          //   message:data.url,
-          //   duration:2000
-          // }).then((res)=>{
-          //   res.present()
-          // })
-          const slug = data.url.split(".in").pop();
-          if (slug) {
-              this.router.navigateByUrl(slug);
-          }
+    // App.addListener('appUrlOpen', (data: any) => {
+    //   this.zone.run(() => {
+    //       // Example url: https://beerswift.app/tabs/tab2
+    //       // slug = /tabs/tab2
+    //       // this.toastController.create({
+    //       //   message:data.url,
+    //       //   duration:2000
+    //       // }).then((res)=>{
+    //       //   res.present()
+    //       // })
+    //       const slug = data.url.split(".in").pop();
+    //       if (slug) {
+    //           this.router.navigateByUrl(slug);
+    //       }
 
-          // If no match, do nothing - let regular routing
-          // logic take over
-      });
-    });
+    //       // If no match, do nothing - let regular routing
+    //       // logic take over
+    //   });
+    // });
   }
 
   checkVersion(){
-    // this.load.create({
-    //   message:"Please wait.... checking Version....."
-    // }).then((res)=>{
-    //   res.present()
-    // })
+    this.load.create({
+      message:`Please wait.... <br>checking Version.....`
+    }).then((res)=>{
+      res.present()
+    })
     return this.http.get('https://backend.dashback.in/checkVer').subscribe((res)=>{
       this.version = res
       this.load.dismiss()
-      if(this.version.version !== '1.1.558' ){
+      if(this.version.version !== '1.1.560' ){
         const alert = this.alret.create({
           header: 'Version Alert',
           message: 'You are on lower version. Update to latest version. ',
@@ -86,11 +86,19 @@ speed;
             }
           }]
         }).then((res)=>{
-          res.present()
-          res.onDidDismiss().then(()=>{
-            navigator['app'].exitApp()
-          })
+          setTimeout(()=>{
+            res.present()
+            this.load.dismiss()
+            res.onDidDismiss().then(()=>{
+              navigator['app'].exitApp()
+            })
+          },2000)
         })
+      }
+      else{
+        setTimeout(()=>{
+          this.load.dismiss()
+        },2000);
       }
     })
   }
